@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>식당 정보</title>
+    <link rel="stylesheet" href="{% static 'restaurant_list/css/reviews.css' %}">
+</head>
+<body>
+    <h1>식당 정보</h1>
+    {% for restaurant in restaurants %}
+        {% if restaurant.error %}
+            <p>{{ restaurant.error }}</p>
+        {% else %}
+            <div class="restaurant">
+                <h2>{{ restaurant.name }}</h2>
+                <p><strong>유형:</strong> {{ restaurant.types|join:", " }}</p>
+                <p><strong>주소:</strong> {{ restaurant.address }}</p>
+                <p><strong>전화번호:</strong> {{ restaurant.phone_number|default:"정보 없음" }}</p>
+                <p><strong>현재 영업 여부:</strong> {% if restaurant.open_now %}영업 중{% else %}영업 종료{% endif %}</p>
+                <p><strong>평점:</strong> {{ restaurant.rating|default:"평점 없음" }} (리뷰 수: {{ restaurant.review_count|default:"0" }})</p>
+                
+                <h3>주간 운영 시간</h3>
+                <ul>
+                    {% for day in restaurant.weekday_text %}
+                        <li>{{ day }}</li>
+                    {% empty %}
+                        <li>운영 시간 정보 없음</li>
+                    {% endfor %}
+                </ul>
+                
+                <h3>최근 리뷰</h3>
+                <ul>
+                    {% for review in restaurant.reviews %}
+                        <li>
+                            <strong>{{ review.author_name }}</strong> ({{ review.rating }}/5): 
+                            {{ review.text }}
+                        </li>
+                    {% empty %}
+                        <li>리뷰가 없습니다.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% empty %}
+        <p class="error">검색 결과가 없습니다.</p>
+    {% endfor %}
+</body>
+</html>

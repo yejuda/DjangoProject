@@ -1,0 +1,96 @@
+/* 기본 설정 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* 연한 하늘색 (AliceBlue) */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* 헤더 스타일 */
+h1 {
+    color: #4682b4; /* 소라색 (SteelBlue) */
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 식당 컨테이너 */
+.restaurant {
+    background-color: #e6f0fa; /* 연한 파란색 */
+    border: 2px solid #87ceeb; /* 하늘색 (SkyBlue) */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.restaurant:hover {
+    transform: scale(1.02); /* 호버 시 살짝 커짐 */
+    border-color: #b0c4de; /* 연보라색 계열 (LightSteelBlue) */
+}
+
+/* 식당 이름 */
+.restaurant h2 {
+    color: #4169e1; /* 로얄 블루 (RoyalBlue) */
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+/* 정보 항목 */
+.restaurant p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.restaurant p strong {
+    color: #4682b4; /* 소라색 */
+}
+
+/* 운영 시간 및 리뷰 제목 */
+.restaurant h3 {
+    color: #6a5acd; /* 연보라색 계열 (SlateBlue) */
+    margin-top: 15px;
+    font-size: 1.4em;
+}
+
+/* 리스트 스타일 */
+.restaurant ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.restaurant ul li {
+    background-color: #f0f8ff; /* 연한 하늘색 */
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 4px solid #87ceeb; /* 하늘색 */
+    border-radius: 5px;
+}
+
+/* 리뷰 작성자 강조 */
+.restaurant ul li strong {
+    color: #4169e1; /* 로얄 블루 */
+}
+
+/* 에러 메시지 */
+p.error {
+    color: #ff6347; /* 토마토색 (에러 강조용) */
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .restaurant {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    .restaurant h2 {
+        font-size: 1.5em;
+    }
+}
